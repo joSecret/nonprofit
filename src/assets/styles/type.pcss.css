@@ -1,5 +1,5 @@
 /* Headings */
-:where(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6 .h6,) {
+:where(h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6) {
   margin-top: 0;
   margin-bottom: var(--h-mb);
   font-family: var(--h-ff);
@@ -40,7 +40,7 @@
 
 /* Lists */
 .list-unstyled,
-  .list-inline {
+.list-inline {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -50,15 +50,15 @@
   display: inline-block;
 
   &:not(:last-child) {
-    --list-inline-p: .5rem;
-    margin-right:var(--list-inline-p);
+    --list-inline-p: 0.5rem;
+    margin-right: var(--list-inline-p);
   }
 }
 
 /* Misc */
 /* Builds on `abbr` */
 .initialism {
-  font-size: var(--initialism-font-size, .875em);
+  font-size: var(--initialism-font-size, 0.875em);
   text-transform: uppercase;
 }
 
@@ -75,14 +75,12 @@
 
 .blockquote-footer {
   --blockquote-footer-font-size: var(--fs-sm);
-  --blockquote-footer-color: var(--c-gray)
-
-  margin-top: calc(var(--blockquote-margin-y) * -1);
+  --blockquote-footer-color: var(--c-gray) margin-top: calc(var(--blockquote-margin-y) * -1);
   margin-bottom: var(--blockquote-margin-y);
   font-size: var(--blockquote-footer-font-size);
   color: var(--blockquote-footer-color);
 
   &::before {
-    content: "\2014\00A0";
+    content: '\2014\00A0';
   }
 }
