@@ -1,0 +1,42 @@
+:where(.badge) {
+  --_badge_tt: 0.15s;
+  display: inline-block;
+  line-height: var(--badge_lh, 1, 25rem);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+
+  padding: var(--badge-py, 4px) var(--badge-px, 8px);
+  font-size: var(--badge-fs, 14px);
+  font-weight: var(--badge-fw, var(--fw-light));
+  color: var(--_badge-c, var(--c-white));
+  background-color: var(--_badge-bg, transparent);
+  border-radius: var(--badge-br, var(--br));
+
+  transition: color var(--badge_tt, var(--_badge_tt)) ease-in-out,
+    background-color var(--badge_tt, var(--_badge_tt)) ease-in-out;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+
+.badge-primary {
+  --_badge-c: var(--badge-c, var(--c-primary));
+  --_badge-bg: var(--badge-bg, rgb(from var(--c-primary) r g b / 15%));
+}
+
+.badge-secondary {
+  --_badge-c: var(--badge-c, var(--c-secondary));
+  --_badge-bg: var(--badge-bg, rgb(from var(--c-secondary) r g b / 15%));
+}
+
+.badge-info {
+  --_badge-c: var(--badge-c, var(--c-info));
+  --_badge-bg: var(--badge-bg, rgb(from var(--c-info) r g b / 15%));
+}

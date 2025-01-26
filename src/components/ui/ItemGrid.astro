@@ -1,0 +1,41 @@
+---
+import type { ItemGrid as Props } from '~/types';
+import Button from './Button.astro';
+import { Icon } from 'astro-icon/components';
+
+const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
+
+const {
+  container: containerClass = '',
+  panel: panelClass = '',
+  title: titleClass = '',
+  description: descriptionClass = '',
+  icon: defaultIconClass = 'text-primary',
+  action: actionClass = '',
+} = classes;
+---
+
+{
+  items && (
+    <div class:list={containerClass}>
+      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
+        <div class='intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade'>
+          <div class:list={[panelClass]}>
+            <div class='flex justify-center'>
+              {(icon || defaultIcon) && <Icon name={icon || defaultIcon} class:list={'some-class'} />}
+            </div>
+            <div class='mt-0.5'>
+              {title && <h3 class:list={'some-class'}>{title}</h3>}
+              {description && <p class:list={['text-muted', descriptionClass]} set:html={description} />}
+              {callToAction && (
+                <div class:list={[actionClass]}>
+                  <Button variant='link' {...callToAction} />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
