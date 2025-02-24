@@ -1,0 +1,3 @@
+[submodule "src/assets/style"]
+	path = src/assets/style
+	url = https://github.com/joSecret/style.git
